@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+html {font-size:62.5%;}
+/* font-size 10px */
+*{padding: 0; margin: 0; box-sizing: border-box;}
+table{width: 100%; border-collapse: collapse;}
+ul, ol{list-style: none;}
+a{text-decoration: none; color: #000;}
+address{font-style: normal;}
+
+fieldset,input,textarea,select {border: 0; outline: none; vertical-align: middle;}
+/* vertical-align은 form, img에 적용 가능 */
+/* form요소가 들어갈때 초기화시키는 요소 */
+/* outline:none하면 기본적으로 갖고 있는 input할 때 검은테두리 사라짐 */
+/* appearance:none ;셀렉트 박스 옆에 화살표 없애고 싶을 때 */
+/* 화살표 없애면 background로 넣으면 됨 */
+
+legend{display: none;}

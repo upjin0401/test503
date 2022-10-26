@@ -1,0 +1,316 @@
+@charset "utf-8";
+
+body {  font-family: 'LeferiBase', sans-serif; font-size: 1.6rem; line-height: 1.5; color: #000; }
+.clearfix:after { content: ''; display: block; clear: both; }
+
+.inner { max-width: calc(100% - 200px); margin: 0 auto; } /* 지정된 사이즈 */
+.inner_100 { max-width: 100%; margin: 0 auto; } /* 100% 사이즈 */
+
+@media (max-width:1600px) {
+    .inner { max-width: calc(100% - 160px); }
+}
+
+@media (max-width:1400px) {
+    .inner { max-width: calc(100% - 140px); }
+}
+
+@media (max-width:1200px) {
+    .inner { max-width: calc(100% - 120px); }
+}
+
+@media (max-width:1024px) {
+    .inner { max-width: calc(100% - 100px); }
+}
+
+@media (max-width:768px) {
+    .inner { max-width: calc(100% - 40px); }
+}  /* 모바일 */
+
+@media (max-width:320px) {
+    .inner { max-width: calc(100% - 20px); }
+}
+
+
+#popup {background: #a89079; padding: 10px 0 5px; text-align: center; position: relative;}
+#popup a {color: #fff; font-size: 1.4rem;}
+#popup .popup_close{position: absolute; right: 10px; top: 8px; font-size: 2rem; color: #fff; cursor: pointer;}
+
+/* all_wrap */
+.all_wrap {position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #67625e; z-index: 99999;}
+.all_wrap .all_close {position: absolute; right: 0; top: 0; cursor: pointer;}
+/* header */
+#header {position: relative; transition: background 1s;}
+/* header를 기준으로 해야 팝업이 열려도 2차메뉴 제대로 열림 */
+#header .inner { height: 80px; align-items: center; display: flex; justify-content: space-between; padding-top: 10px; transition: height 1s;} /* 가로배치, 높이 값 주고 세로 중앙정렬 */
+#header h1 img { display: block; } /* line-height값 제거 */
+
+#header .gnb > li { float: left; position: relative; z-index: 999; } /* or 인라인 블럭 씀 */
+#header .gnb > li:before{content: ''; width: 8px; height: 8px; background: #758246; border-radius: 50%; display: block; position: absolute; left: 50%;top: -20px; opacity: 0; transition: top 0.3s, opacity 0.3s;}
+#header .gnb > li:hover:before {top: -5px; opacity: 1;}
+#header .gnb > li:hover > a {color: #758246;}
+#header .gnb > li > a { display: block; padding: 10px 40px 5px; font-size: 2rem; } /* 폰트 스타일이 아래쪽 공간이 있기 때문에 위아래 다르게 줌 */
+
+
+/* depth2 */
+#header .gnb > li .depth2 { position: absolute; top: 70px; width: 700px; }
+#header .gnb > li .depth2 li { float: left; }
+#header .gnb > li .depth2 li a { color: #fff; display: block; padding: 10px 10px 5px; }
+
+
+#header .depth2_bg { width: 100%; position: absolute; left: 0; top: 80px; height: 60px; background: #758246; z-index: 199; }
+
+
+/* util */
+#header .util > li { float: left; padding: 10px; }
+#header .util > li img { width: 20px; } /* 아이콘 이미지 사이즈 */
+#header .util .language a{color: #999; font-size: 1.2rem;}
+#header .util .language ul{position: absolute; background: #ff0; z-index: 100; padding: 20px; transform: translateX(-20px);}
+/* 왼쪽으로 더 이동하게 하기위해서 transform */
+
+#header .util .language .down.active:before{transform: rotate(180deg);}
+
+#header .util .ham{display: none;}
+#header .mgnb_wrap {position: fixed; left:0; top: 0; width: 100%; height: 100%; background: #fff; z-index: 99999; padding-top: 50px; left: 100%;}
+/* 박스밖으로 left 100 */
+#header .mgnb_wrap .mgnb_close {cursor:pointer; position: absolute; right: 20px; top: 20px; font-size: 3rem;}
+#header .mgnb_wrap .m_inner{max-width: calc(100% - 40px); margin: 0 auto;}
+#header .mgnb_wrap .mgnb > li {border-bottom: 1px solid #ddd; padding: 15px 0 10px; font-size: 2rem;}
+#header .mgnb_wrap .mgnb{border-top: 1px solid #000;}
+#header .mdepth2{padding: 10px;}
+#header .mdepth2 > li {font-size: 1.4rem; position: relative; padding-left: 15px;}
+/* 글자 밀어넣게 하기위해서 padding-left */
+#header .mdepth2 > li::before{content: ''; width: 5px; height: 5px; background: #999; border-radius: 50%; display: block; position: absolute; left: 0; top: 50%; margin-top: -5px;}
+
+#header .mdepth2 > li > a {color: #999;}
+
+@media(max-width:1200px){
+    #header .gnb{display: none;}
+}
+
+@media(max-width:1024px){
+    #header h1 img{width: 70px;}
+    #header .util .all_menu{display: none;}
+    #header .util .ham{display: block;}
+}
+
+@media(max-width:768px){
+    #header .util .language{display: none;}
+}
+
+
+
+/* container */
+#container section{margin: 0 0 200px;}
+#container .sub_title h2{font-size: 6rem; font-family: 'Philosopher';}
+#container .sub_title p{color: #999;}
+
+#container .btn_more a { transition: background 0.5s, color 0.5s; display: inline-block; padding: 15px 40px 10px; border: 1px solid #000; color: #000; border-radius: 5px; }
+#container .btn_more a:hover { border: 1px solid #67625e; background: #67625e; color: #fff; }
+
+@media (max-width:1200px){
+    #container section{margin: 0 0 150px;}
+#container .sub_title h2{font-size: 5rem;}
+#container .btn_more a { padding: 10px 30px 5px; font-size: 1.4rem;}
+
+
+}
+
+
+@media (max-width:768px){
+    #container section{margin: 0 0 100px;}
+#container .sub_title h2{font-size: 4rem;}
+
+
+}
+
+
+/* main_banner */
+#main_banner ul li { height: 625px; }
+#main_banner ul li.mb1 { background: url('../images/main/mb1_bg.jpg') no-repeat center center; background-size: cover; } /* 비율에 맞춰서 들어감 남는 영역X */
+#main_banner ul li.mb2 { background: url('../images/main/mb2_bg.jpg') no-repeat center center; background-size: cover; }
+
+#main_banner ul li .mb_txt { height: 625px; display: flex; flex-direction: column; justify-content: center; text-align: center; } /* 높이 값 줘야함, 세로정렬, 세로축에 대한 center */
+#main_banner ul li .mb_txt p { font-size: 2rem; }
+#main_banner ul li .mb_txt h2 { font-size: 5rem; padding: 20px 0 30px; }
+#main_banner ul li .mb_txt .none{display: none;}
+/* word-break:keep-all ; 줄넘김 할 때 공백 기준으로 들어감 */
+#main_banner ul li .mb_txt .btn_more { margin-top: 30px; }
+
+
+#main_banner .arrow {  width: 70px; height: 70px; margin-top: -35px; } /* 검사-computed 마진값 재설정 */
+#main_banner .arrow:after { display: none; } /* 방향버튼 none 검사해서 위치 알기*/
+#main_banner .prev { transition: transfrom 0.5s; left: 0; background: rgba(0, 0, 0, 0.3) url('../images/main/btn_prev.png') no-repeat center center; } /* 검사해서 값알기 */
+#main_banner .prev:hover { transform: translateX(20px); left: 0; background: rgba(0, 0, 0, 0.8) url('../images/main/btn_prev.png') no-repeat center center; }
+#main_banner .next { right: 0; background: rgba(0, 0, 0, 0.3) url('../images/main/btn_next.png') no-repeat center center; }
+#main_banner .next:hover { right: 0; background: rgba(0, 0, 0, 0.8) url('../images/main/btn_next.png') no-repeat center center; }
+
+
+#main_banner .swiper-pagination {bottom: 30px;}
+#main_banner .mb_play,#main_banner .mb_pause { transform: translateX(30px); z-index: 99; position: absolute; left: 50%; bottom: 27px; font-size: 2rem; cursor: pointer; }/* 아이콘 폰트이기 때문에 font-size로 크기 조절 */
+
+@media(max-width:1200px){
+    #main_banner ul li{height: 500px;}
+    #main_banner ul li .mb_txt{height: 500px;}
+    #main_banner ul li .mb_txt h2{font-size: 3.6rem;}
+    #main_banner ul li .mb_txt p{font-size: 1.6rem;}
+   
+
+}
+
+@media(max-width:768px){
+    #main_banner ul li .mb_txt .none{display: block;}
+    #main_banner .arrow{display: none;}
+}
+
+
+/* product */
+#product {text-align: center;}
+#product ul {padding: 50px 0;}
+#product ul li {transform: scale(0.8,0.8); transition: transform 0.5s;}
+#product ul li.swiper-slide-active{transform: scale(1,1);}
+/* 작게 있다가 원래크기로 돌아오는 것 */
+#product ul li .thumbnail{background: #eee; position: relative;}
+#product ul li .thumbnail img{display: block; width: 100%;}
+
+#product ul li .thumbnail img:nth-child(2) {position: absolute; top: 0; left: 0;opacity: 0; transition: opacity 0.5s; background: #eee;}
+/* 똑같은 백그라운드 적용해야 hover했을 시 똑같이 보임 */
+#product ul li:hover .thumbnail img:nth-child(2){opacity: 1;}
+#product ul li .thumbnail i {position: absolute; right: 20px; top: 20px;}
+#product ul li h3{padding: 30px 0 10px; font-weight: 400;}
+#product ul li p{color: #999;}
+#product .swiper-scrollbar {width: 80%; left: 50%; transform: translateX(-50%);}
+/* absolute먹혀 있어서 margin 0 auto안되고 left 50%적용 */
+#product .swiper-scrollbar-drag {background: #758246;}
+#product .btn_more {margin-top: 30px;}
+
+/* teawear */
+#teaware .inner{display: flex; flex-wrap: wrap; }
+#teaware .sub_title{width: 26.423%;}/* 450px */
+/* %:부모 요소를 너비를 기준으로 , vw:기기의 가로해상도 기준(미디어 쿼리 가로크기), vh:기기의 세로 해상도*/
+#teaware .teaware_brand{width: calc(100% - 26.423%); position: relative; height: 500px;}
+
+
+#teaware .brand_list li{float: left; padding-right: 40px; cursor: pointer; }
+#teaware .brand_list li.active span{border-bottom: 3px solid #a89079; color: #a89079; display: inline-block; }
+/* sapn은 inline요소라서 인라인블럭으로 변경후 패딩줘야함 */
+#teaware .brand_list li span{font-size: 2rem;}
+#teaware .brand_list li .brand_img{position: absolute; left: 0; top: 50px; opacity: 0; transition: opacity 0.5s; height: 450px;}
+/* 이미지를 고정된 상태로 만들었음 */
+#teaware .teaware_brand img{width: 100%;display: block; width: 100%; height: 100%; object-fit: cover;}
+#teaware .brand_list li.active .brand_img{opacity: 1;}
+/* hover대신에 active라는 클래스를 줌 */
+
+@media (max-width:1400px){
+    #teaware .sub_title{width: 100%; text-align: center; padding-bottom: 30px;}
+    #teaware .teaware_brand{width: 100%;}
+}
+
+@media (max-width:1024px){
+    #teaware .teaware_brnad{height: 450px;}
+    #teaware .brand_list li .brand_img{height: 400px;}
+    #teaware .brand_list li{padding-right: 20px;}
+    #teaware .brand_list li span{font-size: 1.6rem;}
+}
+
+
+
+/* story */
+#story{overflow: hidden; height: 600px; position: relative;}
+#story video{width: 100%; height: 100%; object-fit: cover;position: absolute;left: 0; top: 0; }
+/* video, img 꽉차게 만들려면 object-fit cover사용 */
+#story .sub_title{position: absolute; left: 0; top: 0; background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%;  text-align: center; color: #fff; display: flex; flex-direction: column; justify-content: center;}
+/* absolute주고 나서는 가로 세로 100%줘야함 */
+/* text중앙에 하기 위해서 flex를 줌 */
+
+#story .sub_title .btn_more a {color: #fff; border: 1px solid #fff; transition: background 0.5s, color 0.5s; margin-top: 30px;}
+#story .sub_title .btn_more a:hover {background: #fff; color: #000;}
+
+@media(max-width:1024px){
+    #story{height: 500px;}
+}
+
+/* insta */
+#insta .inner{display: flex; flex-wrap: wrap; position: relative; }
+#insta .sub_title{width: 26.423%;}/* 450px */
+
+#insta .all_grid .grid article{padding: 0 0 50px;}
+#insta .all_grid{width: calc(100% - 26.423%); display: flex; justify-content: space-between;}
+/* 안에 있는 grid 가로배치 위해서 */
+#insta .all_grid .grid{width: calc((100% - 90px)/4);}
+#insta .all_grid .grid img{width: 100%;}
+#insta .all_grid .grid dt{font-size: 1.8rem; padding: 10px 0;}
+#insta .all_grid .grid dd{color: #999;}
+/* all-grid를 100%로 잡고 중간 padding빼고 나누기 4 */
+
+#insta .btn_more {position: absolute; left: 0; top: 200px;}
+/* 밑으로 떨어트리려면 기본값 positon static주면됨
+float 원래 상태로 하려면 float none */
+
+@media(max-width:1200px){
+    #insta .sub_title{width: 100%; text-align: center; padding-bottom: 30px;}/* 450px */
+#insta .all_grid{width: 100%;}
+#insta .btn_more {position: static; text-align: center; width: 100%;}
+}
+
+@media(max-width:1024px){
+    #insta .all_grid .grid:nth-child(n+3){display: none;}
+    #insta .all_grid .grid{width: calc((100% - 30px)/2);}
+    #insta .all_grid .grid dt{font-size: 1.6rem;}
+    #insta .all_grid .grid dd{font-size: 1.4rem;}
+}
+/* n+3 = 3번부터 마지막까지 */
+
+/* museum */
+#museum{text-align: center;}
+#museum .museum_list{display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 50px;}
+/* 20px씩 띄워서 space-between줌 */
+#museum .museum_list li{width: calc((50% - 40px)/2); color: #fff; height: 450px; display: flex; flex-direction: column; justify-content: center; transition: width 1s;}
+/* 작은 크기에서 커져야함 */
+#museum .museum_list li h3{font-weight: 400; font-size: 2.4rem;}
+#museum .museum_list li p{padding: 20px 0; opacity: 0; transition: opacity 0.5s;}
+#museum .museum_list li.active p{opacity: 1;}
+#museum .museum_list li.active{width: 50%;}
+#museum .museum_list li:nth-child(1){background: url(../images/main/museum_01.jpg) no-repeat center center; background-size: cover;}
+#museum .museum_list li:nth-child(2){background: url(../images/main/museum_02.jpg) no-repeat center center;background-size: cover;}
+#museum .museum_list li:nth-child(3){background: url(../images/main/museum_03.jpg) no-repeat center center;background-size: cover;}
+
+#museum .btn_more a {color: #fff; border: 1px solid #fff; transition: background 0.5s, color 0.5s; opacity: 0; transition: opacity 0.5s;}
+#museum .btn_more a:hover {background: #fff; color: #000;}
+#museum .museum_list li.active .btn_more a{opacity: 1;}
+
+@media(max-width:1200px){
+    #museum .museum_list li{width: calc((100% - 40px)/3); height: 350px;}
+    #museum .museum_list li.active{width: calc((100% - 40px)/3);}
+    #museum .museum_list li p {display: none;}
+    #museum .btn_more a{opacity:1; margin-top: 30px;}
+}
+
+@media(max-width:1024px){
+    #museum .museum_list li{height: 250px; width: 100%;}
+    #museum .museum_list li.active{width: 100%}
+    #museum .museum_list li:nth-child(-n+2) {margin-bottom: 20px;}
+}
+
+
+
+/* footer */
+#footer {background: #eee; padding: 100px 0; font-size: 1.4rem;}
+#footer .footer_top{display: flex; border-bottom: 1px solid #ddd; justify-content: space-between; padding-bottom: 20px; align-items: flex-end; flex-wrap: wrap;}
+/* 밑에 라인에 맞추기 위해서 flex-end로 설정 */
+#footer .footer_top ul li{float: left; padding-right: 15px;}
+#footer .footer_top p span{color: #758246; font-size: 3rem; font-family: 'Philosopher',sans-serif; font-weight: 700;}
+#footer .footer_top .call{text-align: right;}
+
+#footer .footer_bottom{display: flex; justify-content: space-between; padding-top: 30px; flex-wrap: wrap;}
+
+#footer .footer_bottom ul li{float: left; padding: 0 15px 30px 0;}
+#footer .footer_bottom address,#footer .footer_bottom .copy{opacity: 0.5;}
+
+@media(max-width:768px){
+    #footer{padding: 50px;}
+    #footer .footer_top .call {text-align: left; padding-top: 10px;}
+    #footer .copy{padding-top: 20px;}
+}
+
+/* gotop */
+.gotop {background: #000; color: #fff; position: fixed; right: 100px; bottom: 100px; cursor: pointer; padding: 20px;}
